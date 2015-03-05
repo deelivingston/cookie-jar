@@ -1,7 +1,7 @@
 'use strict';
 
-describe('myApp.version module', function() {
-  beforeEach(module('myApp.version'));
+describe('cookieJar.version module', function() {
+  beforeEach(module('cookieJar.version'));
 
   describe('version service', function() {
     it('should return current version', inject(function(version) {
