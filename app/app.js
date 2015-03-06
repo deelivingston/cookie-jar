@@ -1,12 +1,22 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('cookieJar', [
-  'ngRoute',
-  'cookieJar.board',
-  'cookieJar.jarapp',
-  'cookieJar.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/board'});
-}]);
+var cookieJarApp = angular.module('cookieJarApp',  [
+        'ngRoute',
+        'appControllers'
+    ]);
+
+cookieJarApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/board', {
+                templateUrl: 'board/board.html',
+                controller: 'BoardCtrl'
+            }).
+            when('/jarapp', {
+                templateUrl: 'jarapp/jarapp.html',
+                controller: 'CookieJarCtrl'
+            }).
+            otherwise({
+                redirectTo: '/board'
+            });
+    }]);
